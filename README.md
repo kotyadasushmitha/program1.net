@@ -6,3 +6,4 @@
 5.Based upon the iphone model , I will provide the actual cost of the iphone excluding tax and discount, and also it calls the function calculation() and balance().
 6.The function calculation() returns decimal value. Based upon the memory size, it calculates the total cost of iphone including tax and discount if applicable.
 7.The function balance(), does not return any value, it just calculates the remaining balance available with the user or will inform how much more money is needed to purchase the mobile.
+<img src="https://github.com/kotyadasushmitha/program1.net/blob/master/Screenshot%20(215).png">
