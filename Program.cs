@@ -11,17 +11,19 @@ namespace p2
             var EXIT_CHAR = 'q';
             var name = "";
             var unitCost = 0.0m;
+            var affordableCost = "";
             var iphonemodel = "";
             var memory = 0;
             var discount = 0.15;
             var tax = 0.25;
             var totalcost = 0.0m;
+            
         
             while(value)
             {
             Console.WriteLine("***********************************");
             Console.WriteLine("\nApp that tells the price of the Iphones based on the memory size"); 
-            Console.WriteLine("Enter 'y' to continue or 'q' to quit");
+            Console.WriteLine("Enter any variable to continue or 'q' to quit");
             var str = Console.ReadLine();
             if(Convert.ToChar(str) == EXIT_CHAR)
             {
@@ -32,46 +34,51 @@ namespace p2
             name = Console.ReadLine();
             Console.WriteLine($"Please enter your iphone model and memory without spaces: ");
             iphonemodel = Console.ReadLine();
+            Console.WriteLine($"Enter the amount to purchase mobile : ");
+            affordableCost = Console.ReadLine();
             
-             
-           
-           
            switch(iphonemodel.ToLower())
            {
             case "iphonex32" :  
                             memory = 32;
                             unitCost =  800.0m;
-                            Console.WriteLine($"final price of iphonex with 32 gb memory is:  {calculation(unitCost,memory)}");
+                            Console.WriteLine($"Final price of iphonex with 32 gb memory is:  ${calculation(unitCost,memory)}");
+                            balance();
                             break;
 
             case "iphonex64" :  
                             memory = 64;
                             unitCost =  900.0m;
-                            Console.WriteLine($"final price of iphonex with 64 gb memory is: {calculation(unitCost,memory)}");
+                            Console.WriteLine($"Final price of iphonex with 64 gb memory is: ${calculation(unitCost,memory)}");
+                            balance();
                             break;
 
              case "iphonex128" :  
                             memory = 128;
                             unitCost =  1000.0m;
-                            Console.WriteLine($"final price of iphonex with 128 gb memory is: {calculation(unitCost,memory)}");
+                            Console.WriteLine($"Final price of iphonex with 128 gb memory is: ${calculation(unitCost,memory)}");
+                            balance();
                             break;               
 
             case "iphonexsmax32" :
                             memory = 32;
                             unitCost =  1050.0m;
-                            Console.WriteLine($"final price of iphonexs max with 32 gb memory is: {calculation(unitCost,memory)}");
+                            Console.WriteLine($"Final price of iphonexs max with 32 gb memory is: ${calculation(unitCost,memory)}");
+                            balance();
                             break;
 
             case "iphonexsmax64" :
                             memory = 64;
                             unitCost =  1200.0m;
-                            Console.WriteLine($"final price of iphonexs max with 64 gb memory is: {calculation(unitCost,memory)}");
+                            Console.WriteLine($"Final price of iphonexs max with 64 gb memory is: ${calculation(unitCost,memory)}");
+                            balance();
                             break;
 
             case "iphonexsmax128" :
                             memory = 128;
                             unitCost =  1400.0m;
-                            Console.WriteLine($"final price of iphonexs max with 32 gb memory is: {calculation(unitCost,memory)}$");
+                            Console.WriteLine($"Final price of iphonexs max with 32 gb memory is: ${calculation(unitCost,memory)}");
+                            balance();
                             break;
 
             default :     Console.WriteLine("Provide correct details");
@@ -86,7 +93,8 @@ namespace p2
                if(mem == 32)
                {
                    
-                totalcost = uCost + (t * uCost) ;   
+                totalcost = uCost + (t * uCost) ; 
+                  
                }
                if(mem == 64)
                {
@@ -98,25 +106,31 @@ namespace p2
                 totalcost = uCost - (d * uCost);   
                }
                Console.WriteLine($"\n***********Details*************");
-               Console.WriteLine($"Name : {name}");
-               Console.WriteLine($"Your IPHONE Model is {iphonemodel} ");
-               
-               return totalcost;
+               Console.WriteLine($"NAME : {name}");
+               Console.WriteLine($"IPHONE MODEL is {iphonemodel} ");
+           
+            return totalcost;
                
            }
+
+           void balance()
+           {
+            var cost = Convert.ToDecimal(affordableCost);
+               if((cost - totalcost) >= 0.0m)
+               {
+                  Console.WriteLine($"Remaining balance after purchasing iphone is ${cost - totalcost}");
+
+               }
+               else if ((cost - totalcost) < 0.0m)
+               {
+                Console.WriteLine($"Need more money ${totalcost - cost} to purchase mobile ");
+                
+               }
+                         }
            
             } 
            
-           
-        
-
-           
-           
-
-
-
-
-          
+       
 
         }
     }
